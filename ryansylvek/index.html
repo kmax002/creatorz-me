@@ -145,17 +145,25 @@
     a.className='ag-confirm';
     a.textContent="Yes, I\u2019m 18+";
     a.setAttribute('rel','noopener');
-    a.addEventListener('click',function(e){
-      e.preventDefault();
-      hint.classList.add('ag-hint-pulse');
-      setTimeout(function(){hint.classList.remove('ag-hint-pulse')},600);
-    });
+    var isMobile='ontouchstart' in window||navigator.maxTouchPoints>0;
+    if(isMobile){
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        hint.classList.add('ag-hint-pulse');
+        setTimeout(function(){hint.classList.remove('ag-hint-pulse')},600);
+      });
+    } else {
+      a.target='_blank';
+    }
     m.appendChild(a);
 
     var hint=document.createElement('p');
     hint.className='ag-hint';
-    hint.textContent='\u261D\uFE0F Hold down the button to open the link';
-    hint.style.opacity='0';
+    if(isMobile){
+      hint.innerHTML='\u261D\uFE0F Hold down the button for <strong>3 seconds</strong> to open the link';
+    } else {
+      hint.innerHTML='Click the button above to continue';
+    }
     m.appendChild(hint);
 
     var x=document.createElement('button');
@@ -168,8 +176,6 @@
     document.body.appendChild(o);
 
     requestAnimationFrame(function(){o.classList.add('ag-visible')});
-
-    setTimeout(function(){hint.style.opacity='1'},1500);
 
     function close(){
       o.classList.remove('ag-visible');

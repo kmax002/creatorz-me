@@ -438,8 +438,8 @@ body {
   background: #1a1a1e;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  padding: 36px 28px 28px;
-  max-width: 340px;
+  padding: 40px 28px 32px;
+  max-width: 380px;
   width: 100%;
   text-align: center;
   position: relative;
@@ -452,16 +452,18 @@ body {
 }
 
 .ag-icon {
-  font-size: 2.2rem;
-  margin-bottom: 14px;
+  font-size: 2.6rem;
+  margin-bottom: 16px;
   line-height: 1;
 }
 
 .ag-heading {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .ag-text {
@@ -498,14 +500,15 @@ body {
 }
 
 .ag-hint {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-top: 14px;
-  transition: opacity 0.5s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 18px;
+  line-height: 1.4;
 }
 
 .ag-hint-pulse {
-  color: #fff;
+  color: #ff6b6b;
   transition: color 0.15s ease;
 }
 
