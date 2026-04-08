@@ -145,11 +145,16 @@
     a.className='ag-confirm';
     a.textContent="Yes, I\u2019m 18+";
     a.setAttribute('rel','noopener');
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      hint.classList.add('ag-hint-pulse');
+      setTimeout(function(){hint.classList.remove('ag-hint-pulse')},600);
+    });
     m.appendChild(a);
 
     var hint=document.createElement('p');
     hint.className='ag-hint';
-    hint.textContent='\u261D\uFE0F Hold down the button for 3 seconds to open the link';
+    hint.textContent='\u261D\uFE0F Hold down the button to open the link';
     hint.style.opacity='0';
     m.appendChild(hint);
 

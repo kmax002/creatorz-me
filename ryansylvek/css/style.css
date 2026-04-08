@@ -504,6 +504,11 @@ body {
   transition: opacity 0.5s ease;
 }
 
+.ag-hint-pulse {
+  color: #fff;
+  transition: color 0.15s ease;
+}
+
 .ag-close {
   position: absolute;
   top: 12px;
