@@ -71,15 +71,15 @@
         </span>
       </a>
 
-      <a href="https://www.fanvue.com/ryan.sylvek" target="_blank" rel="noopener" class="link-card" data-platform="onlyfans">
+      <button type="button" id="ec-trigger" class="link-card" data-platform="exclusive">
         <span class="link-icon">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </span>
-        <span class="link-label">Come talk to me 🔥 <span class="age-badge">18+</span></span>
+        <span class="link-label">Exclusive Content</span>
         <span class="link-chevron">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </span>
-      </a>
+      </button>
     </section>
 
     <!-- About Me -->
@@ -111,5 +111,69 @@
     </footer>
 
   </main>
+<script>
+(function(){
+  var t=document.getElementById('ec-trigger');
+  if(!t)return;
+  t.addEventListener('click',function(){
+    var o=document.createElement('div');
+    o.className='ag-overlay';
+    var m=document.createElement('div');
+    m.className='ag-modal';
+
+    var ic=document.createElement('div');
+    ic.className='ag-icon';
+    ic.textContent='\u26A0\uFE0F';
+    m.appendChild(ic);
+
+    var h=document.createElement('h2');
+    h.className='ag-heading';
+    h.textContent='Adult content';
+    m.appendChild(h);
+
+    var p=document.createElement('p');
+    p.className='ag-text';
+    p.textContent='This content is restricted to users 18+. Please confirm your age in order to continue.';
+    m.appendChild(p);
+
+    var _a='a2V2bHlzLm5heXIv',_b='bW9jLmV1dm5hZi53',_c='d3cvLzpzcHR0aA==';
+    var d=atob(_a+_b+_c);
+    var u='';for(var i=d.length-1;i>=0;i--)u+=d[i];
+
+    var a=document.createElement('a');
+    a.href=u;
+    a.className='ag-confirm';
+    a.textContent="Yes, I\u2019m 18+";
+    a.setAttribute('rel','noopener');
+    m.appendChild(a);
+
+    var hint=document.createElement('p');
+    hint.className='ag-hint';
+    hint.textContent='\u261D\uFE0F Hold down the button for 3 seconds to open the link';
+    hint.style.opacity='0';
+    m.appendChild(hint);
+
+    var x=document.createElement('button');
+    x.className='ag-close';
+    x.setAttribute('aria-label','Close');
+    x.textContent='\u2715';
+    m.appendChild(x);
+
+    o.appendChild(m);
+    document.body.appendChild(o);
+
+    requestAnimationFrame(function(){o.classList.add('ag-visible')});
+
+    setTimeout(function(){hint.style.opacity='1'},1500);
+
+    function close(){
+      o.classList.remove('ag-visible');
+      setTimeout(function(){if(o.parentNode)o.parentNode.removeChild(o)},250);
+    }
+    x.addEventListener('click',close);
+    o.addEventListener('click',function(e){if(e.target===o)close()});
+  });
+})();
+</script>
 </body>
 </html>

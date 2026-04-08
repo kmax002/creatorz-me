@@ -197,17 +197,6 @@ body {
   align-items: center;
 }
 
-.age-badge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--text-secondary);
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-left: 4px;
-  vertical-align: middle;
-}
-
 /* Platform-specific icon backgrounds */
 .link-card[data-platform="instagram"] .link-icon {
   background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
@@ -231,16 +220,19 @@ body {
   color: #fff;
 }
 
-.link-card[data-platform="onlyfans"] {
-  background: #232328;
-  border-color: rgba(255, 255, 255, 0.1);
+.link-card[data-platform="exclusive"] {
+  background: rgba(88, 60, 160, 0.18);
+  border-color: rgba(108, 99, 255, 0.2);
+  font: inherit;
+  text-align: left;
 }
 
-.link-card[data-platform="onlyfans"]:hover {
-  background: #2a2a30;
+.link-card[data-platform="exclusive"]:hover {
+  background: rgba(88, 60, 160, 0.26);
+  border-color: rgba(108, 99, 255, 0.3);
 }
 
-.link-card[data-platform="onlyfans"] .link-icon {
+.link-card[data-platform="exclusive"] .link-icon {
   background: linear-gradient(135deg, #00AFF0, #0090d0);
   color: #fff;
 }
@@ -419,4 +411,118 @@ body {
   .posts-grid {
     gap: 3px;
   }
+}
+
+/* ── Age Gate Modal ── */
+
+.ag-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.ag-overlay.ag-visible {
+  opacity: 1;
+}
+
+.ag-modal {
+  background: #1a1a1e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px 28px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  transform: translateY(12px) scale(0.97);
+  transition: transform 0.25s ease;
+}
+
+.ag-visible .ag-modal {
+  transform: translateY(0) scale(1);
+}
+
+.ag-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.ag-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.ag-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.ag-confirm {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  background: #fff;
+  color: #0c0c0e;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  -webkit-touch-callout: default;
+}
+
+.ag-confirm:hover {
+  background: #e8e8ea;
+}
+
+.ag-confirm:active {
+  transform: scale(0.98);
+}
+
+.ag-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 14px;
+  transition: opacity 0.5s ease;
+}
+
+.ag-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ag-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
 }
